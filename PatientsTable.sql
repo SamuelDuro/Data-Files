@@ -20,11 +20,20 @@ CREATE TABLE procedures (
 
 -- Create Patient History Table
 CREATE TABLE patient_history (
-    history_id INT PRIMARY KEY AUTO_INCREMENT,
+    record_id INT NOT NULL,
     patient_id INT NOT NULL,
     procedure_id INT NOT NULL,
     procedure_date DATE NOT NULL,
-    notes TEXT,
+    dentist VARCHAR(100) NOT NULL
+    assistant VARCHAR(100) NOT NULL,
     FOREIGN KEY (patient_id) REFERENCES patients(patient_id) ON DELETE CASCADE,
     FOREIGN KEY (procedure_id) REFERENCES procedures(procedure_id) ON DELETE CASCADE
+    
+    constraint dentist_constraint check(
+    dentist in
+    ('John Smith', 'Samuel Duro-Aina', 'Brittany Klose')),
+    
+    constraint assistant check(
+    assistant in
+    ('Sam Winchester','Nathaniel bacon','Nicolas Jackson','Mark Grayson', 'Nolan Edward', 'Harry Porter')),
 );
