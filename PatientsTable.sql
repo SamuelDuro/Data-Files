@@ -4,7 +4,7 @@ CREATE TABLE patients (
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     date_of_birth DATE NOT NULL,
-    age INT VARCHAR(40),
+    age VARCHAR(45) NOT NULL,
     gender ENUM('Male', 'Female', 'Other') NOT NULL,
     contact_number VARCHAR(20),
     address VARCHAR(255)
