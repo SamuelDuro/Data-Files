@@ -7,7 +7,8 @@ CREATE TABLE patients (
     age VARCHAR(45) NOT NULL,
     gender ENUM('Male', 'Female', 'Other') NOT NULL,
     contact_number VARCHAR(20),
-    address VARCHAR(255)
+    address VARCHAR(255),
+    name var,
 );
 
 -- Create Procedures Table
