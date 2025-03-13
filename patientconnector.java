@@ -29,53 +29,25 @@ public class patientconnector
 				System.out.println(rs.getString("date_of_birth"));
 			}
 			
-			Scanner input=new Scanner(System.in);
-			System.out.print("\nType 'a' to add, 'u' to update, 'd' to delete: ");
-			String strChoice=String.valueOf(input.next().charAt(0));
-			
-			switch (strChoice)
-			{
-				case "a":
-					System.out.println("===ADD===");
-					System.out.print("enter last_name: ");
-					String strLastname=input.next();
-					
-					System.out.print("enter first_name: ");
-					String strFirstname=input.next();
-					
-					System.out.print("enter date_of_birth: ");
-					String strDOB=input.next();
-					
-					strSQL="insert into patients values(null, '" + strLastname + "', '" + strFirstname + "', '" + strDOB + "', ";
-					strSQL=strSQL + "'address', 'city', 'state', 'zipcode', 'phone', 'email')";
-					System.out.println(strSQL);
-					stmt.executeUpdate(strSQL);
-					break;
-					
-				case "u":
-					System.out.println("===UPDATE===");
-					System.out.print("enter id of patient to update: ");
-					int id=input.nextInt();
-					
-					System.out.print("enter new last_name or 'x' to skip: ");
-					strLastname=input.next();
-					
-					System.out.print("enter new first_name or 'x' to skip: ");
-					strFirstname=input.next();
-					
-					System.out.print("enter new date_of_birth or 'x' to skip: ");
-					strDOB=input.next();
-					
-					if (!strLastname.equals("x"))
-					{
-						strSQL="update patients set last_name='" + strLastname + "' where patient_id=" + id;
-						System.out.println(strSQL);
-						stmt.executeUpdate(strSQL);
-					}
-					
-					if (!strFirstname.equals("x"))
-					{
-						strSQL="update patients set first_name='" + strFirstname + "' where patient_id=" + id;
+			try (Scanner input = new Scanner(System.in)) {
+				System.out.print("\nType 'a' to add, 'u' to update, 'd' to delete: ");
+				String strChoice=String.valueOf(input.next().charAt(0));
+				
+				switch (strChoice)
+				{
+					case "a":
+						System.out.println("===ADD===");
+						System.out.print("enter last_name: ");
+						String strLastname=input.next();
+						
+						System.out.print("enter first_name: ");
+						String strFirstname=input.next();
+						
+						System.out.print("enter date_of_birth: ");
+						String strDOB=input.next();
+						
+						strSQL="insert into patients values(null, '" + strLastname + "', '" + strFirstname + "', '" + strDOB + "', ";
+						strSQL=strSQL + "'address', 'city', 'state', 'zipcode', 'phone', 'email')";
 						System.out.println(strSQL);
 						stmt.executeUpdate(strSQL);
 						break;
