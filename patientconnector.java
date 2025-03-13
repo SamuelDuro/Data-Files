@@ -78,25 +78,54 @@ public class patientconnector
 						strSQL="update patients set first_name='" + strFirstname + "' where patient_id=" + id;
 						System.out.println(strSQL);
 						stmt.executeUpdate(strSQL);
-					}
-					
-					if (!strDOB.equals("x"))
-					{
-						strSQL="update patients set date_of_birth='" + strDOB + "' where patient_id=" + id;
+						break;
+						
+					case "u":
+						System.out.println("===UPDATE===");
+						System.out.print("enter id of patient to update: ");
+						int id=input.nextInt();
+						
+						System.out.print("enter new last_name or 'x' to skip: ");
+						strLastname=input.next();
+						
+						System.out.print("enter new first_name or 'x' to skip: ");
+						strFirstname=input.next();
+						
+						System.out.print("enter new date_of_birth or 'x' to skip: ");
+						strDOB=input.next();
+						
+						if (!strLastname.equals("x"))
+						{
+							strSQL="update patients set last_name='" + strLastname + "' where patient_id=" + id;
+							System.out.println(strSQL);
+							stmt.executeUpdate(strSQL);
+						}
+						
+						if (!strFirstname.equals("x"))
+						{
+							strSQL="update patients set first_name='" + strFirstname + "' where patient_id=" + id;
+							System.out.println(strSQL);
+							stmt.executeUpdate(strSQL);
+						}
+						
+						if (!strDOB.equals("x"))
+						{
+							strSQL="update patients set date_of_birth='" + strDOB + "' where patient_id=" + id;
+							System.out.println(strSQL);
+							stmt.executeUpdate(strSQL);
+						}
+						break;
+						
+					case "d":
+						System.out.println("===DELETE===");
+						System.out.print("enter id of patient to delete: ");
+						id=input.nextInt();
+						strSQL="delete from patients where patient_id=" + id;
 						System.out.println(strSQL);
 						stmt.executeUpdate(strSQL);
-					}
-					break;
-					
-				case "d":
-					System.out.println("===DELETE===");
-					System.out.print("enter id of patient to delete: ");
-					id=input.nextInt();
-					strSQL="delete from patients where patient_id=" + id;
-					System.out.println(strSQL);
-					stmt.executeUpdate(strSQL);
-					break;
-					
+						break;
+						
+				}
 			}
 			rs.close();
 			con.close();
