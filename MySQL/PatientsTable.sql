@@ -1,5 +1,8 @@
--- Initialize Database
+set FOREIGN_KEY_CHECKS=0;
+set SQL_MODE = 'NO_ZERO_DATE';
 
+-- Initialize Database
+drop database if exists dentistsdb;
 create database dentistsdb;
 use dentistsdb;
 
@@ -28,12 +31,13 @@ CREATE TABLE procedures (
 );
 
 -- Create Patient History Table
+drop table if exists patient_history;
 CREATE TABLE patient_history (
     record_id INT primary key,
     patient_id INT NOT NULL,
     procedure_id INT NOT NULL,
     procedure_date DATE NOT NULL,
-    dentist VARCHAR(100) NOT NULL
+    dentist VARCHAR(100) NOT NULL,
     assistant VARCHAR(100) NOT NULL,
     notes  varchar(200),
 
@@ -44,7 +48,13 @@ CREATE TABLE patient_history (
     dentist in
     ('John Smith', 'Samuel Duro-Aina', 'Brittany Klose')),
     
-    constraint assistant check(
+    constraint assistant_constraint check(
     assistant in
     ('Sam Winchester','Nathaniel bacon','Nicolas Jackson','Mark Grayson', 'Nolan Edward', 'Harry Porter'))
 );
+
+select * from patients;
+
+select * from procedures;
+
+select * from patient_history
