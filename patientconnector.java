@@ -8,12 +8,10 @@ import java.util.Scanner;
 
 public class patientconnector
 {	
-	//static final String driverName="com.mysql.jdbc.Driver";
 	static final String driverName="com.mysql.cj.jdbc.Driver";
-	//static final String url ="jdbc:mysql://localhost:127.0.0.1/dentistsdb";
-	static final String url ="jdbc:mysql://127.0.0.1:3306/dentistsdb?";
+	static final String url ="jdbc:mysql://localhost:3306/dentistsdb";
 	static final String user="root";
-	static final String password="Jasper425";
+	static final String password="Jasper20";
 	public static void main(String a[])
 	{
 		try
