@@ -1,4 +1,4 @@
-package project;
+//package Data-Files;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-public class patients
+public class patientconnector
 {	
 	//static final String driverName="com.mysql.jdbc.Driver";
 	static final String driverName="com.mysql.cj.jdbc.Driver";
