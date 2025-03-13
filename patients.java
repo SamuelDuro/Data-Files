@@ -9,9 +9,10 @@ public class patients
 {	
 	//static final String driverName="com.mysql.jdbc.Driver";
 	static final String driverName="com.mysql.cj.jdbc.Driver";
-	static final String url ="jdbc:mysql://localhost/csc315";
+	//static final String url ="jdbc:mysql://localhost:127.0.0.1/dentistsdb";
+	static final String url ="jdbc:mysql://127.0.0.1:3306/dentistsdb";
 	static final String user="root";
-	static final String password="toor";
+	static final String password="jasper425";
 	public static void main(String a[])
 	{
 		try
@@ -19,14 +20,14 @@ public class patients
 			//Class.forName(driverName);
 			Connection con = DriverManager.getConnection(url,user,password);
 			Statement stmt = con.createStatement();
-			String strSQL="select patient_id, lastname, firstname, dob from patients order by lastname";
+			String strSQL="select patient_id, last_name, firstname, date_of_birth from patients order by last_name";
 			ResultSet rs = stmt.executeQuery(strSQL);
 			while(rs.next())
 			{
 				System.out.print(rs.getInt("patient_id") + ",");
-				System.out.print(rs.getString("lastname") + ",");
-				System.out.print(rs.getString("firstname") + ",");
-				System.out.println(rs.getString("dob"));
+				System.out.print(rs.getString("last_name") + ",");
+				System.out.print(rs.getString("first_name") + ",");
+				System.out.println(rs.getString("date_of_birth"));
 			}
 			
 			Scanner input=new Scanner(System.in);
@@ -37,17 +38,17 @@ public class patients
 			{
 				case "a":
 					System.out.println("===ADD===");
-					System.out.print("enter lastname: ");
+					System.out.print("enter last_name: ");
 					String strLastname=input.next();
 					
-					System.out.print("enter firstname: ");
+					System.out.print("enter first_name: ");
 					String strFirstname=input.next();
 					
-					System.out.print("enter dob: ");
+					System.out.print("enter date_of_birth: ");
 					String strDOB=input.next();
 					
 					strSQL="insert into patients values(null, '" + strLastname + "', '" + strFirstname + "', '" + strDOB + "', ";
-					strSQL=strSQL + "'address', 'city', 'state', 'zip', 'phone', 'email')";
+					strSQL=strSQL + "'address', 'city', 'state', 'zipcode', 'phone', 'email')";
 					System.out.println(strSQL);
 					stmt.executeUpdate(strSQL);
 					break;
@@ -57,32 +58,32 @@ public class patients
 					System.out.print("enter id of patient to update: ");
 					int id=input.nextInt();
 					
-					System.out.print("enter new lastname or 'x' to skip: ");
+					System.out.print("enter new last_name or 'x' to skip: ");
 					strLastname=input.next();
 					
-					System.out.print("enter new firstname or 'x' to skip: ");
+					System.out.print("enter new first_name or 'x' to skip: ");
 					strFirstname=input.next();
 					
-					System.out.print("enter new dob or 'x' to skip: ");
+					System.out.print("enter new date_of_birth or 'x' to skip: ");
 					strDOB=input.next();
 					
 					if (!strLastname.equals("x"))
 					{
-						strSQL="update patients set lastname='" + strLastname + "' where patient_id=" + id;
+						strSQL="update patients set last_name='" + strLastname + "' where patient_id=" + id;
 						System.out.println(strSQL);
 						stmt.executeUpdate(strSQL);
 					}
 					
 					if (!strFirstname.equals("x"))
 					{
-						strSQL="update patients set firstname='" + strFirstname + "' where patient_id=" + id;
+						strSQL="update patients set first_name='" + strFirstname + "' where patient_id=" + id;
 						System.out.println(strSQL);
 						stmt.executeUpdate(strSQL);
 					}
 					
 					if (!strDOB.equals("x"))
 					{
-						strSQL="update patients set dob='" + strDOB + "' where patient_id=" + id;
+						strSQL="update patients set date_of_birth='" + strDOB + "' where patient_id=" + id;
 						System.out.println(strSQL);
 						stmt.executeUpdate(strSQL);
 					}

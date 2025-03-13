@@ -33,7 +33,7 @@ CREATE TABLE patient_history (
     patient_id INT NOT NULL,
     procedure_id INT NOT NULL,
     procedure_date DATE NOT NULL,
-    dentist VARCHAR(100) NOT NULL,
+    dentist VARCHAR(100) NOT NULL
     assistant VARCHAR(100) NOT NULL,
     notes  varchar(200),
 
@@ -48,9 +48,3 @@ CREATE TABLE patient_history (
     assistant in
     ('Sam Winchester','Nathaniel bacon','Nicolas Jackson','Mark Grayson', 'Nolan Edward', 'Harry Porter'))
 );
-
-select * from patients;
-
-select * from patient_history;
-
-select * from procedures
