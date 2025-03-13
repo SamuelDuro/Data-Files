@@ -5,14 +5,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
+
 public class patients
 {	
 	//static final String driverName="com.mysql.jdbc.Driver";
 	static final String driverName="com.mysql.cj.jdbc.Driver";
 	//static final String url ="jdbc:mysql://localhost:127.0.0.1/dentistsdb";
-	static final String url ="jdbc:mysql://127.0.0.1:3306/dentistsdb";
+	static final String url ="jdbc:mysql://127.0.0.1:3306/dentistsdb?";
 	static final String user="root";
-	static final String password="jasper425";
+	static final String password="Jasper425";
 	public static void main(String a[])
 	{
 		try
