@@ -1,6 +1,6 @@
- //package project;
+package connector;
 import java.sql.Connection;
-// import java.sql.DriverManager;
+import java.sql.DriverManager;
 // import java.sql.ResultSet;
 // import java.sql.SQLException;
 // import java.sql.Statement;
@@ -15,7 +15,7 @@ import java.sql.Connection;
 		try 
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-			conn=DriverManager.getConnection("jdbc:mysql://localhost/csc315?user=root&password=toor")
+			conn=DriverManager.getConnection("jdbc:mysql://localhost/dentistsdb?user=root&password=jasper20");
 			System.out.println("connected...");
 		}
 		catch (Exception ex)
