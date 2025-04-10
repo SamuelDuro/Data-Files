@@ -10,7 +10,20 @@ import java.sql.Connection;
  {	
 
 	public static void main (String[]args)
-	Connection conn=null;
+	{
+		Connection conn=null;
+		try 
+		{
+			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			conn=DriverManager.getConnection("jdbc:mysql://localhost/csc315?user=root&password=toor")
+			System.out.println("connected...");
+		}
+		catch (Exception ex)
+		{
+			System.out.println("SQLException: " + ex.getMessage());
+		}	
+	}
+	
 // 	static final String driverName="com.mysql.cj.jdbc.Driver";
 // 	static final String url ="jdbc:mysql://localhost:3306/dentistsdb";
 // 	static final String user="root";
