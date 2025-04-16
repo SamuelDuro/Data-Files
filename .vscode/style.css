@@ -2,3 +2,18 @@ h1{
     text-align: center;
     color: blue;
 }
+
+ nav{
+    padding: 10px 0;
+    width: 94%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul li{
+    list-style-type: none;
+    margin: 10px 20px;
+    display: inline-block;
+}
