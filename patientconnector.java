@@ -1,4 +1,4 @@
-package Data-Files;
+//package Data-Files;
 import java.sql.Connection;
 // import java.sql.DriverManager;
 // import java.sql.ResultSet;
@@ -15,7 +15,7 @@ import java.sql.Connection;
 		try 
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-			conn=DriverManager.getConnection("jdbc:mysql://localhost/csc315?user=root&password=toor")
+			conn=DriverManager.getConnection("jdbc:mysql://localhost/csc315?user=root&password=toor");
 			System.out.println("connected...");
 		}
 		catch (Exception ex)
