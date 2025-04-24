@@ -1,6 +1,6 @@
 //package Data-Files;
 import java.sql.Connection;
-// import java.sql.DriverManager;
+import java.sql.DriverManager;
 // import java.sql.ResultSet;
 // import java.sql.SQLException;
 // import java.sql.Statement;
@@ -11,7 +11,7 @@ import java.sql.Connection;
 
 	public static void main (String[]args)
 	{
-		Connection conn=null;
+		Connection conn = null;
 		try 
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
